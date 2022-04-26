@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.3.0] - 2022-04-26
+- Add php-fpm configuration script
+- Install Composer LTS version
+- Update alpine base image
+- Rebuild image for latest PHP updates
+
 ## [1.2.0] - 2021-06-28
 - Update alpine base image
 - Rebuild image for latest PHP updates
@@ -33,7 +39,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Initial public release
 
-[Unreleased]: https://github.com/gmitirol/alpine313-php74/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/gmitirol/alpine313-php74/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/gmitirol/alpine313-php74/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/gmitirol/alpine313-php74/compare/1.1.4...1.2.0
 [1.1.4]: https://github.com/gmitirol/alpine313-php74/compare/1.1.3...1.1.4
 [1.1.3]: https://github.com/gmitirol/alpine313-php74/compare/1.1.2...1.1.3
