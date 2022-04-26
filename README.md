@@ -15,6 +15,7 @@ Included scripts:
 | `php-extensions.sh`          | Provides helper functions for getting available and default PHP extensions |
 | `setup-gitlab-token-auth.sh` | Configures git and composer authentication via GitLab CI token             |
 | `setup-nginx.sh`             | Configures the built-in nginx web server                                   |
+| `setup-php-fpm.sh`           | Configures the PHP FPM parameters                                          |
 
 Included tools:
 
