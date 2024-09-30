@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- Update alpine base image
 
 ## [1.3.0] - 2022-04-26
 - Add php-fpm configuration script
