@@ -13,7 +13,7 @@ EOF
 cat <<'EOF' >/etc/nginx/conf.d/gzip.conf
 gzip on;
 gzip_disable "msie6";
- 
+
 gzip_vary on;
 gzip_proxied off;
 gzip_comp_level 6;
@@ -23,12 +23,21 @@ gzip_http_version 1.0;
 gzip_types gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript application/x-font-ttf application/x-font-opentype image/svg+xml image/x-icon application/atom_xml;
 EOF
 
+cat <<'EOF' >/etc/nginx/conf.d/map_https.conf
+map $http_x_forwarded_proto $forward_https_proto_fastcgi {
+  default $https;
+  https on;
+}
+EOF
+
 sed -i -r 's/^(\s+)client_max_body_size ([0-9]+)m;$/\1client_max_body_size 20m;/' /etc/nginx/nginx.conf
 sed -i -r 's/^(\s+)gzip on;$/\1# gzip on;/' /etc/nginx/nginx.conf
 sed -i -r 's/^(\s+)gzip_vary on;$/\1# gzip_vary on;/' /etc/nginx/nginx.conf
+sed -i -r 's/^(fastcgi_param\s+HTTPS\s+).*/\1$forward_https_proto_fastcgi if_not_empty;/g' /etc/nginx/fastcgi.conf
+sed -i -r 's/^(fastcgi_param\s+HTTPS\s+).*/\1$forward_https_proto_fastcgi if_not_empty;/g' /etc/nginx/fastcgi_params
 
 mkdir /etc/nginx/conf.d.server
- 
+
 cat <<'EOF' >/etc/nginx/conf.d.server/blockdot.conf
 location ~ /\. {
     deny all;
@@ -42,7 +51,7 @@ location = /favicon.ico {
     access_log off;
     log_not_found off;
 }
- 
+
 location = /robots.txt {
     access_log off;
     log_not_found off;
@@ -131,4 +140,3 @@ autostart=false
 autorestart=true
 priority=400
 EOF
-

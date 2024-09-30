@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 - Update alpine base image
 - Update docker images used for build
+- Set HTTPS fastcgi parameter if the nginx site is using HTTPS, or the proxy passes HTTPS as x-forwarded-proto
 
 ## [1.3.0] - 2022-04-26
 - Add php-fpm configuration script
